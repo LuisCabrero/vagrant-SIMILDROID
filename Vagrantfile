@@ -4,13 +4,14 @@ Vagrant.configure("2") do |config|
   config.vm.define "SIMILDROID server"
   # Every Vagrant development environment requires a box.
   config.vm.box = "ubuntu/xenial64"
+  config.ssh.forward_agent = true
   # Provisioning the environment
   config.vm.provision :shell, path: "install.sh"
   # Port redirect to access ports from the host machine.
   config.vm.network "forwarded_port", guest: 80, host: 4567
   config.vm.network "forwarded_port", guest: 3306, host: 3333
   # Share an additional folder to the guest VM.
-  config.vm.synced_folder "../SIMILDROID", "/var/www/html"
+  config.vm.synced_folder "../SIMILDROID", "/var/www/html/"
   # Provider-specific configuration
   config.vm.provider "virtualbox" do |vb|
     # Do not display the VirtualBox GUI when booting the machine

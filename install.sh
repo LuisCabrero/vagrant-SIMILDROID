@@ -19,7 +19,14 @@ apt-get install -y mysql-server
 
 # Import SIMILDROID database straight to mysql
 mysqladmin create mydb --user=root --password=admin --host=127.0.0.1 --protocol=tcp
-mysql -u root -p admin mydb < /vagrant/SIMILDROID.sql
+mysql -u root --password=admin mydb < /vagrant/SIMILDROID.sql
+
+# Add Bitbucket host
+ssh-keyscan -H bitbucket.org >> ~/.ssh/known_hosts
+
+# Clone SIMILDROID repo
+cd /var/www/html && rm -rf ..?* .[!.]* *
+cd /var/www/html && git clone git@bitbucket.org:luiscabrero/simildroid.git .
 
 echo '==================================================================================';
 echo 'SIMILDROID WAS PROVISIONED! HAVE FUN!';
