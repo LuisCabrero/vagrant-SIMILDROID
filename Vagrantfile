@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell, path: "install.sh"
   # Port redirect to access ports from the host machine.
   config.vm.network "forwarded_port", guest: 80, host: 4567
+  config.vm.network "forwarded_port", guest: 3306, host: 3333
   # Share an additional folder to the guest VM.
   config.vm.synced_folder "../SIMILDROID", "/var/www/html"
   # Provider-specific configuration
