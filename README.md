@@ -1,2 +1,4 @@
-# vagrant_tfg
-Ficheros para aprovisionamiento de la máquina
+# Vagrant SIMILDROID
+
+Ficheros para aprovisionar un servidor Ubuntu con PHP, MySQL, Apache y SIMILDROID desplegado.
+
