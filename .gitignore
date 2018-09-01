@@ -1,0 +1,8 @@
+# Vagrant info
+.vagrant/
+
+# IDE info
+.idea/
+
+# Logs
+*.log
