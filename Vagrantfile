@@ -2,21 +2,21 @@
 # vi: set ft=ruby :
 Vagrant.configure("2") do |config|
   config.vm.define "SIMILDROID server"
-  # Every Vagrant development environment requires a box.
+  # Ubuntu box
   config.vm.box = "ubuntu/xenial64"
   config.ssh.forward_agent = true
-  # Provisioning the environment
+  # Aprovisionamiento del entorno
   config.vm.provision :shell, path: "install.sh"
-  # Port redirect to access ports from the host machine.
+  # Redirección de puertos para poder acceder a MySQL y Apache
   config.vm.network "forwarded_port", guest: 80, host: 4567
   config.vm.network "forwarded_port", guest: 3306, host: 3333
-  # Share an additional folder to the guest VM.
+  # Carpeta compartida
   config.vm.synced_folder "../SIMILDROID", "/var/www/html/"
   # Provider-specific configuration
   config.vm.provider "virtualbox" do |vb|
-    # Do not display the VirtualBox GUI when booting the machine
+    # La máquina virtual no dispondrá de GUI
     vb.gui = false
-    # Customize the amount of memory on the VM:
+    # Memoria RAM
     vb.memory = "2048"
   end
 end
