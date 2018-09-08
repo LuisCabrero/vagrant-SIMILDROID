@@ -9,6 +9,7 @@ apt-get install -y software-properties-common
 add-apt-repository -y ppa:ondrej/php
 apt-get update
 apt-get install -y php5.6
+apt-get install -y php5.6-xml
 apt-get install -y libapache2-mod-php5.6
 
 # Install MySQL
