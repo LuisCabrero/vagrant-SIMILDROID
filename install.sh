@@ -12,6 +12,9 @@ apt-get install -y php5.6
 apt-get install -y php5.6-xml
 apt-get install -y libapache2-mod-php5.6
 
+# Install Java
+apt-get install -y openjdk-8-jre
+
 # Install MySQL
 debconf-set-selections <<< 'mysql-server mysql-server/root_password password admin'
 debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password admin'
